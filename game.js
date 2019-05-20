@@ -77,7 +77,6 @@ function loadImages() {
  * catY represents the Y position.
  * We'll need these values to know where to "draw" the cat.
  * 
- * The same applies to the sushi.
  */
 
 let catX = canvas.width / 2;
@@ -166,8 +165,8 @@ let update = function () {
   }
 
   //Cage bounces back
-  cageX += cageDirectionX * (round * 1);
-  cageY += cageDirectionY * (round * 1);
+  cageX += cageDirectionX * round;
+  cageY += cageDirectionY * round;
 
   if (cageX > canvas.width - 50 || cageX < 0) {
     cageDirectionX = -cageDirectionX;
@@ -244,6 +243,29 @@ let update = function () {
     round++;
     score = 0;
   }
+
+  // restart game;
+  restart = function () {
+    document.getElementById("high-round").innerHTML = `${highRound}`;
+    document.getElementById("high-score").innerHTML = `${highScore}`;
+    round = 0;
+    visibleScore = 0;
+    startTime = Date.now();
+    SECONDS_PER_ROUND = 10;
+    elapsedTime = 0;
+
+    catX = canvas.width / 2;
+    catY = canvas.height / 2;
+
+    sushiX = Math.round(Math.random() * (canvas.width - 100));
+    sushiY = Math.round(Math.random() * (canvas.height - 100));
+
+    cageX = Math.round(Math.random() * (canvas.width - 100));
+    cageY = Math.round(Math.random() * (canvas.height - 100));
+
+    ramenX = Math.round(Math.random() * (canvas.width - 100));
+    ramenY = Math.round(Math.random() * (canvas.height - 100));
+  }
 };
 
 /**
@@ -287,29 +309,6 @@ var render = function () {
   document.getElementById("total-score").innerHTML = `${visibleScore}`;
   document.getElementById("round").innerHTML = `${round}`;
 };
-
-// restart game;
-var restart = function () {
-  document.getElementById("high-round").innerHTML = `${highRound}`;
-  document.getElementById("high-score").innerHTML = `${highScore}`;
-  SECONDS_PER_ROUND = 10;
-  round = 0;
-  startTime = Date.now();
-  elapsedTime = 0;
-  visibleScore = 0;
-
-  catX = canvas.width / 2;
-  catY = canvas.height / 2;
-
-  sushiX = Math.round(Math.random() * (canvas.width - 100));
-  sushiY = Math.round(Math.random() * (canvas.height - 100));
-
-  cageX = Math.round(Math.random() * (canvas.width - 100));
-  cageY = Math.round(Math.random() * (canvas.height - 100));
-
-  ramenX = Math.round(Math.random() * (canvas.width - 100));
-  ramenY = Math.round(Math.random() * (canvas.height - 100));
-}
 
 // reset game;
 var reset = function () {
