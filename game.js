@@ -22,7 +22,7 @@ let bgReady, catReady, sushiReady, cageReady, ramenReady;
 let bgImage, catImage, sushiImage, cageImage, ramenImage;
 
 let startTime = Date.now();
-let SECONDS_PER_ROUND = 3;
+let SECONDS_PER_ROUND = 10;
 let elapsedTime = 0;
 let remainingTime;
 
