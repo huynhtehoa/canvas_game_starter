@@ -28,7 +28,7 @@ let remainingTime;
 
 let score = 0;
 let round = 0;
-let totalScore = 0;
+let visibleScore = 0;
 let highScore = 0;
 
 
@@ -193,13 +193,13 @@ let update = function () {
     ramenX = Math.round(Math.random() * (canvas.width - 100));
     ramenY = Math.round(Math.random() * (canvas.height - 100));
 
-    // Increase totalScore (visible score) by 1 for every cat-sushi collision
-    totalScore++;
+    // Increase visibleScore by 1 for every cat-sushi collision
+    visibleScore++;
     score++;
 
     //High score
-    if (highScore < totalScore) {
-      highScore = totalScore;
+    if (highScore < visibleScore) {
+      highScore = visibleScore;
     }
 
     // Increase time by 2s for every collision
@@ -218,8 +218,8 @@ let update = function () {
     cageY = Math.round(Math.random() * canvas.height);
 
     // Lose if cat and cage collided
-    alert("My cat get caught 🙀. Auto restarting...");
-    reset();
+    alert("My cat get caught 🙀. Press Enter to restarting...");
+    restart();
   }
 
   if (
@@ -234,11 +234,11 @@ let update = function () {
     ramenY = Math.round(Math.random() * canvas.height);
 
     // Lose if cat and ramen collided
-    alert("My cat needs to 💩. Auto restarting...");
-    reset();
+    alert("My cat needs to 💩. Press Enter to restarting...");
+    restart();
   }
 
-  // Everytime score reaches multiples 5 => round++ and add previous score to totalScore;
+  // Everytime visibleScore reaches multiples of 3 => round++ Add score = 0 to prevent infinite ++;
   if (score == 3) {
     round++;
     score = 0;
@@ -251,17 +251,18 @@ let update = function () {
 var render = function () {
   remainingTime = SECONDS_PER_ROUND - elapsedTime;
 
-  // Reset if remaining time = 0;
+  // restart if remaining time = 0;
   if (remainingTime === 0 && hasntRestarted === true) {
     hasntRestarted = false;
-    alert("Out of time 😿. Auto restarting...");
-    return reset();
+    alert("Out of time 😿. Press Enter to restarting...");
+    return restart();
   }
 
+  // Win the game;
   if (round == 10 && hasntRestarted === true) {
     hasntRestarted = false;
-    alert("MY CAT IS TOO FULL! STOP FEEDING. RESETING...");
-    return reset();
+    alert("MY CAT IS TOO FULL! STOP FEEDING. restartING...");
+    return restart();
   }
 
   if (bgReady) {
@@ -281,18 +282,18 @@ var render = function () {
   }
   document.getElementById("high-score").innerHTML = `${highScore}`;
   document.getElementById("remaining-time").innerHTML = `${remainingTime}`;
-  document.getElementById("total-score").innerHTML = `${totalScore}`;
+  document.getElementById("total-score").innerHTML = `${visibleScore}`;
   document.getElementById("round").innerHTML = `${round}`;
 };
 
-// Reset game
-var reset = function () {
+// restart game;
+var restart = function () {
   document.getElementById("high-score").innerHTML = `${highScore}`;
   SECONDS_PER_ROUND = 10;
   round = 0;
   startTime = Date.now();
   elapsedTime = 0;
-  totalScore = 0;
+  visibleScore = 0;
   catX = canvas.width / 2;
   catY = canvas.height / 2;
 
@@ -306,7 +307,12 @@ var reset = function () {
   ramenY = Math.round(Math.random() * (canvas.height - 100));
 }
 
-// Music control
+// reset game;
+var reset = function () {
+  location.reload();
+}
+
+// Music control;
 var myAudio = document.getElementById("audio");
 var isPlaying = true;
 
@@ -315,12 +321,12 @@ myAudio.autoplay = true;
 function togglePlay() {
   if (isPlaying) {
     myAudio.pause();
-    document.getElementById("audio-button").innerHTML = "🎼 Start";
+    document.getElementById("audio-button").innerHTML = "🎼 ON";
     document.getElementById("audio-button").className = "btn btn-success";
 
   } else {
     myAudio.play();
-    document.getElementById("audio-button").innerHTML = "Pause 🎹";
+    document.getElementById("audio-button").innerHTML = "OFF 🎹";
     document.getElementById("audio-button").className = "btn btn-warning text-white";
   }
 };
