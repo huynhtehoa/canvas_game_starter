@@ -1,10 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Best Game Ever!</title>
-  </head>
-  <body>
-    <script src="game.js"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/main.css">
+  <title>Stupid Cat Game</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-4 col-12">
+        <div>
+          <h1 class="text-center text-danger font-weight-bold py-3">😸Stupid Cat Game😹</h1>
+          <p>
+            My stupidly lazy cat is starving. But she can only eats sushi (I know... 😒). This is all you need to do:
+          </p>
+          <ol>
+            <li>
+              Help her to get 🍣. For every 🍣 my cat gets, you get +2 seconds 🕐.
+            </li>
+            <li>
+              Don't feed her anything other than 🍣 (although they might look appetizing). She will get a diarrhea 💩.
+            </li>
+            <li>
+              Avoid the cage! People are trying to catch and eat my cat! 🙀
+            </li>
+            <li>
+              If my cat get caught or you are out of time. She will die 😿 <b>(Game automatically restarted).</b>
+            </li>
+            <li>
+              You will move to the next round for every 3 🍣 she gets. The game will get harder <b>(cage moving speed *=
+                round)! 🙀</b>
+            </li>
+            <li>
+              <b>How to win:</b> <span class="text-white">You can't because my cat is always hungry. Hehe</span>
+            </li>
+          </ol>
+        </div>
+        <div class="py-2 text-center font-weight-bold" style="font-size: 20px;">⌛ Remaining Time: <span
+            id="remaining-time"></span>
+        </div>
+        <div class="py-2 text-center font-weight-bold" style="font-size: 20px;">💯 Score: <span
+            id="total-score"></span>
+        </div>
+        <div class="py-2 text-center font-weight-bold" style="font-size: 20px;">💪 Round: <span id="round"></span>
+        </div>
+        <div class="py-2 text-center">
+          <audio id="audio" src="audio/background-music.mp3">
+          </audio>
+          <button id="audio-button" class="btn btn-warning text-white" onclick="togglePlay()">Pause 🎹</a>
+        </div>
+        <div class="py-2 text-center">
+          <button onclick="reset()" class="btn px-3 btn-danger">
+            RESTART THE GAME or CTRL + W
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-8 col-12">
+        <canvas id="canvas"></canvas>
+      </div>
+    </div>
+  </div>
+  <script src="game.js"></script>
+</body>
+
 </html>
