@@ -79,14 +79,14 @@ function loadImages() {
 let catX = canvas.width / 2;
 let catY = canvas.height / 2;
 
-let sushiX = Math.round(Math.random() * canvas.width);
-let sushiY = Math.round(Math.random() * canvas.height);
+let sushiX = Math.round(Math.random() * (canvas.width - 100));
+let sushiY = Math.round(Math.random() * (canvas.height - 100));
 
-let cageX = Math.round(Math.random() * canvas.width);
-let cageY = Math.round(Math.random() * canvas.height);
+let cageX = Math.round(Math.random() * (canvas.width - 100));
+let cageY = Math.round(Math.random() * (canvas.height - 100));
 
-let ramenX = Math.round(Math.random() * canvas.width);
-let ramenY = Math.round(Math.random() * canvas.height);
+let ramenX = Math.round(Math.random() * (canvas.width - 100));
+let ramenY = Math.round(Math.random() * (canvas.height - 100));
 
 let sushiDirectionX = 1;
 let sushiDirectionY = 1;
@@ -140,13 +140,13 @@ let update = function () {
   }
 
   // Cat moves through borders
-  if (catX > canvas.width - 32) {
+  if (catX > canvas.width - 50) {
     catX -= canvas.width;
   } else if (catX < 0) {
     catX += canvas.width;
   }
 
-  if (catY > canvas.height - 32) {
+  if (catY > canvas.height - 50) {
     catY -= canvas.height;
   } else if (catY < 0) {
     catY += canvas.height;
@@ -156,11 +156,11 @@ let update = function () {
   sushiX += sushiDirectionX * 2;
   sushiY += sushiDirectionY * 2;
 
-  if (sushiX > canvas.width - 32 || sushiX < 0) {
+  if (sushiX > canvas.width - 50 || sushiX < 0) {
     sushiDirectionX = -sushiDirectionX;
   }
 
-  if (sushiY > canvas.height - 32 || sushiY < 0) {
+  if (sushiY > canvas.height - 50 || sushiY < 0) {
     sushiDirectionY = -sushiDirectionY;
   }
 
@@ -168,11 +168,11 @@ let update = function () {
   cageX += cageDirectionX * (round * 1);
   cageY += cageDirectionY * (round * 1);
 
-  if (cageX > canvas.width - 32 || cageX < 0) {
+  if (cageX > canvas.width - 50 || cageX < 0) {
     cageDirectionX = -cageDirectionX;
   }
 
-  if (cageY > canvas.height - 32 || cageY < 0) {
+  if (cageY > canvas.height - 50 || cageY < 0) {
     cageDirectionY = -cageDirectionY;
   }
 
