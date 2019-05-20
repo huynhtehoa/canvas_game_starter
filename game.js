@@ -90,7 +90,7 @@ let ramenY = Math.round(Math.random() * (canvas.height - 100));
 
 let sushiDirectionX = 1;
 let sushiDirectionY = 1;
-let hasntRestarted  = true;
+let hasntRestarted = true;
 
 let cageDirectionX = 1;
 let cageDirectionY = 1;
@@ -114,7 +114,6 @@ function setupKeyboardListeners() {
     delete keysDown[key.keyCode];
   }, false);
 }
-
 
 /**
  *  Update game objects - change player position based on key pressed
@@ -186,10 +185,11 @@ let update = function () {
   ) {
     // Pick a new location for the sushi.
     // Note: Change this to place the sushi at a new, random location.
-    sushiX = Math.round(Math.random() * canvas.width);
-    sushiY = Math.round(Math.random() * canvas.height);
-    ramenX = Math.round(Math.random() * canvas.width);
-    ramenY = Math.round(Math.random() * canvas.height);
+    sushiX = Math.round(Math.random() * (canvas.width - 100));
+    sushiY = Math.round(Math.random() * (canvas.height - 100));
+
+    ramenX = Math.round(Math.random() * (canvas.width - 100));
+    ramenY = Math.round(Math.random() * (canvas.height - 100));
 
     // Increase score by 1 for every collision
     totalScore++;
@@ -251,6 +251,12 @@ var render = function () {
     return reset();
   }
 
+  if (round == 10 && hasntRestarted === true) {
+    hasntRestarted = false;
+    alert("MY CAT IS TOO FULL! STOP FEEDING. RESETING...");
+    return reset();
+  }
+
   if (bgReady) {
     ctx.drawImage(bgImage, 0, 0);
   }
@@ -294,10 +300,10 @@ function togglePlay() {
     document.getElementById("audio-button").className = "btn btn-warning text-white";
   }
 };
-myAudio.onplaying = function() {
+myAudio.onplaying = function () {
   isPlaying = true;
 };
-myAudio.onpause = function() {
+myAudio.onpause = function () {
   isPlaying = false;
 };
 
