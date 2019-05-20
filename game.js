@@ -29,6 +29,8 @@ let remainingTime;
 let score = 0;
 let round = 0;
 let totalScore = 0;
+let highScore = 0;
+
 
 function loadImages() {
   bgImage = new Image();
@@ -191,9 +193,14 @@ let update = function () {
     ramenX = Math.round(Math.random() * (canvas.width - 100));
     ramenY = Math.round(Math.random() * (canvas.height - 100));
 
-    // Increase score by 1 for every collision
+    // Increase totalScore (visible score) by 1 for every cat-sushi collision
     totalScore++;
     score++;
+
+    //High score
+    if (highScore < totalScore) {
+      highScore = totalScore;
+    }
 
     // Increase time by 2s for every collision
     SECONDS_PER_ROUND += 2;
@@ -272,6 +279,7 @@ var render = function () {
   if (ramenReady) {
     ctx.drawImage(ramenImage, ramenX, ramenY);
   }
+  document.getElementById("high-score").innerHTML = `${highScore}`;
   document.getElementById("remaining-time").innerHTML = `${remainingTime}`;
   document.getElementById("total-score").innerHTML = `${totalScore}`;
   document.getElementById("round").innerHTML = `${round}`;
@@ -279,7 +287,23 @@ var render = function () {
 
 // Reset game
 var reset = function () {
-  window.location.reload();
+  document.getElementById("high-score").innerHTML = `${highScore}`;
+  SECONDS_PER_ROUND = 10;
+  round = 0;
+  startTime = Date.now();
+  elapsedTime = 0;
+  totalScore = 0;
+  catX = canvas.width / 2;
+  catY = canvas.height / 2;
+
+  sushiX = Math.round(Math.random() * (canvas.width - 100));
+  sushiY = Math.round(Math.random() * (canvas.height - 100));
+
+  cageX = Math.round(Math.random() * (canvas.width - 100));
+  cageY = Math.round(Math.random() * (canvas.height - 100));
+
+  ramenX = Math.round(Math.random() * (canvas.width - 100));
+  ramenY = Math.round(Math.random() * (canvas.height - 100));
 }
 
 // Music control
