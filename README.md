@@ -8,7 +8,6 @@ This is a simple Canvas-based game that requires a solid understanding of the pr
 
 Here's a walkthrough of implemented user stories.
 
-![](http://g.recordit.co/cURdPMSHT2.gif)
 
 ## Code Reviews
 
