@@ -6,7 +6,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="css/main.css">
-  <title>Stupid Cat Game</title>
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+  <title>The Kawaii Sushi Cat 🐱</title>
 </head>
 
 <body>
@@ -14,12 +15,13 @@
     <div class="row">
       <div class="col-lg-4 col-12">
         <div>
-          <h1 class="text-center text-danger font-weight-bold py-3">😸Stupid Cat Game😹</h1>
+          <h1 class="text-center text-danger font-weight-bold py-3">The Kawaii Sushi Cat</h1>
           <p>
-            My stupidly lazy cat is starving. But she can only eats sushi (I know... 😒). Click the toggle button below
+            My stupidly lazy cat is starving. But she only eats sushi (I know... 😒). Click the toggle button below
             for instruction <span class="font-weight-bold">(close it before you play for best gaming experience)</span>!
           </p>
         </div>
+        <!--collapse instruction starts-->
         <div class="panel-group">
           <div class="panel panel-default">
             <div class="panel-heading">
@@ -33,39 +35,40 @@
             <div id="collapse1" class="panel-collapse collapse">
               <ol class="list-group">
                 <li class="list-group-item">
-                  Help her to get 🍣. For every 🍣 my cat gets, you get +2 seconds 🕐.
+                  Feed my cat 🍣. For every 🍣 she gets, you get +2 seconds 🕐 as bonus.
                 </li>
                 <li class="list-group-item">
-                  Don't feed her anything other than 🍣 (although they might look appetizing). She will get a diarrhea
+                  Don't feed her anything other than 🍣. Although they might look appetizing, she will get a diarrhea
                   💩.
                 </li>
                 <li class="list-group-item">
                   Avoid the cage! People are trying to catch and eat my cat! 🙀
                 </li>
                 <li class="list-group-item">
-                  If my cat get caught or you are out of time. She will die 😿 <b>(Game will be restarted).</b>
+                  If my cat is caught or you are out of time or she isn't fed sushi, she will die 😿 <b>(Game will be
+                    restarted).</b>
                 </li>
                 <li class="list-group-item">
-                  You will move to the next round for every 3 🍣 she gets. The game will get harder <b>(cage moving
+                  You will move to the next round for every 3 🍣 she gets. The game will get harder <b>(cage movement
                     speed
                     *=
                     round)! 🙀</b>
                 </li>
                 <li class="list-group-item">
-                  <b>How to win:</b><span class="text-white"> But I don't think you can. Hehe. </span>
+                  <b>Tips on how to win:</b><span class="text-white"> But I don't think you can. Hehe.</span>
                   <div>Finish round 10.</div>
                 </li>
               </ol>
             </div>
           </div>
         </div>
-
+        <!--collapse instruction ends-->
         <div class="py-2 text-center font-weight-bold" style="font-size: 20px;">⚡ High Score: <span
             id="high-score"></span>
         </div>
         <div class="py-2 text-center font-weight-bold" style="font-size: 20px;">💪 High Round: <span
-          id="high-round"></span>
-      </div>
+            id="high-round"></span>
+        </div>
         <div class="py-2 text-center font-weight-bold" style="font-size: 20px;">⌛ Remaining Time: <span
             id="remaining-time"></span>
         </div>
@@ -73,23 +76,26 @@
         </div>
         <div class="py-2 text-center font-weight-bold" style="font-size: 20px;">👍 Round: <span id="round"></span>
         </div>
+        <!--audio-->
         <div class="py-2 text-center">
           <audio id="audio" src="audio/background-music-cut.mp3">
           </audio>
           <button id="audio-button" class="btn btn-warning text-white" onclick="togglePlay()">OFF 🎹</a>
         </div>
+        <!--reset-->
         <div class="py-2 text-center">
           <button onclick="reset()" class="btn px-3 btn-danger">
             Reset the whole thing (Remove high score)!
           </button>
         </div>
       </div>
+      <!--canvas-->
       <div class="col-lg-8 col-12">
         <canvas id="canvas"></canvas>
       </div>
     </div>
   </div>
-  <!--bootstrap-->
+  <!--bootstrap script-->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
