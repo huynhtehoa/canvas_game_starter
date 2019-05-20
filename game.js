@@ -254,6 +254,8 @@ let update = function () {
     SECONDS_PER_ROUND = 10;
     elapsedTime = 0;
 
+    keysDown = {};
+
     catX = canvas.width / 2;
     catY = canvas.height / 2;
 
