@@ -33,8 +33,10 @@ let visibleScore = 0;
 let highScore = 0;
 let highRound = 0;
 
+let sushiCollideSound;
+let loseSound;
 
-function loadImages() {
+function startGame() {
   bgImage = new Image();
   bgImage.onload = function () {
     // show the background image
@@ -68,6 +70,10 @@ function loadImages() {
     ramenReady = true;
   };
   ramenImage.src = "images/ramen.png";
+
+  // sound effect
+  sushiCollideSound = new Audio("audio/beep-sushi.mp3");
+  loseSound = new Audio("audio/lose-meow.mp3");
 }
 
 /** 
@@ -184,6 +190,9 @@ let update = function () {
     && catY <= (sushiY + 35)
     && sushiY <= (catY + 35)
   ) {
+    // sound effect;
+    sushiCollideSound.play();
+
     // Pick a new location for the sushi.
     // Note: Change this to place the sushi at a new, random location.
     sushiX = Math.round(Math.random() * (canvas.width - 100));
@@ -212,6 +221,9 @@ let update = function () {
     && catY <= (cageY + 35)
     && cageY <= (catY + 35)
   ) {
+    // sound effect;
+    loseSound.play();
+
     // Pick a new location for the cage.
     // Note: Change this to place the cage at a new, random location.
     cageX = Math.round(Math.random() * canvas.width);
@@ -228,6 +240,9 @@ let update = function () {
     && catY <= (ramenY + 30)
     && ramenY <= (catY + 30)
   ) {
+    // sound effect;
+    loseSound.play();
+
     // Pick a new location for the ramen.
     // Note: Change this to place the ramen at a new, random location.
     ramenX = Math.round(Math.random() * canvas.width);
@@ -360,7 +375,7 @@ var w = window;
 requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
 
 // Let's play this game!
-loadImages();
+startGame();
 setupKeyboardListeners();
 main();
 

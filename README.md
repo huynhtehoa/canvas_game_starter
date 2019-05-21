@@ -8,6 +8,7 @@ This is a simple Canvas-based game that requires a solid understanding of the pr
 
 Here's a walkthrough of implemented user stories.
 
+![Gif Walkthrough](https://media.giphy.com/media/4ZiNNFtnzxUpHStba5/giphy.gif)
 
 ## Code Reviews
 
@@ -36,7 +37,7 @@ This code was reviewed by @username and @otherusername.
 - [ ] The user sees a few different types of monster each time a new monster is spawned. 
 - [x] The monster moves around on its own each frame, and the user must chase it. 
 - [x] The map has "obstacles", such as trees, which block the user from moving through the space occupied by the obstacle. 
-- [ ] The user can hear sound effects upon movement and upon catching a monster. 
+- [x] The user can hear sound effects upon movement and upon catching a monster. 
 - [x] The user hears background music during the game. 
 - [x] The user can see their high score. 
 
