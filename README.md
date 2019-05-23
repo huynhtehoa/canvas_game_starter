@@ -8,8 +8,7 @@ This is a simple Canvas-based game that requires a solid understanding of the pr
 
 Here's a walkthrough of implemented user stories.
 
-https://media.giphy.com/media/4ZiNNFtnzxUpHStba5/giphy.gif
-
+![Gif Walkthrough](https://media.giphy.com/media/4ZiNNFtnzxUpHStba5/giphy.gif)
 
 ## Code Reviews
 
