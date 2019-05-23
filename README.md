@@ -4,11 +4,12 @@ Created with love by: Huynh Te Hoa (Leon)
   
 This is a simple Canvas-based game that requires a solid understanding of the principles of JavaScript programming to customize. 
 
-## Video Walkthrough
+## [Gif Walkthrough]
 
 Here's a walkthrough of implemented user stories.
-
-![Gif Walkthrough](https://media.giphy.com/media/4ZiNNFtnzxUpHStba5/giphy.gif)
+```
+<img src='https://media.giphy.com/media/4ZiNNFtnzxUpHStba5/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+```
 
 ## Code Reviews
 
