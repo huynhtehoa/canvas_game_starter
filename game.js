@@ -21,7 +21,7 @@ canvas.height = 600;
 let bgReady, catReady, sushiReady, cageReady, ramenReady;
 let bgImage, catImage, sushiImage, cageImage, ramenImage;
 
-let startTime = Date.now();
+let startTime = 0;
 let SECONDS_PER_ROUND = 10;
 let elapsedTime = 0;
 let remainingTime;
@@ -36,7 +36,8 @@ let highRound = 0;
 let sushiCollideSound;
 let loseSound;
 
-function startGame() {
+
+function runGame() {
   bgImage = new Image();
   bgImage.onload = function () {
     // show the background image
@@ -289,6 +290,7 @@ let update = function () {
  * This function, render, runs as often as possible.
  */
 var render = function () {
+
   remainingTime = SECONDS_PER_ROUND - elapsedTime;
 
   // restart if remaining time = 0;
@@ -375,7 +377,11 @@ var w = window;
 requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
 
 // Let's play this game!
-startGame();
-setupKeyboardListeners();
-main();
-
+function startGame() {
+  document.querySelector(".start-game").style.display = "none";
+  document.getElementById("canvas").style.display = "block";
+  startTime = Date.now();
+  runGame();
+  setupKeyboardListeners();
+  main();
+}
